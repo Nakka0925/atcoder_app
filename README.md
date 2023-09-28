@@ -1,24 +1,19 @@
-# README
+* コンテナ作成
+```console
+$ docker-compose build
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+*データベース作成
+```
+$ docker-compose exec web rails db:create
+```
 
-Things you may want to cover:
+* コンテナ起動
+```console
+$ docker-compose up -d #-d バックグラウンドで実行
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* コンテナを停止
+```console
+$ docker-compose down
+```
