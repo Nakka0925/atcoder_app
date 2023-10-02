@@ -1,0 +1,2 @@
+class GetProblem < ApplicationRecord
+end
