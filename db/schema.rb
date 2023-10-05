@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_02_092503) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_05_080855) do
   create_table "get_problems", charset: "utf8mb4", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
