@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-    # include SessionsHelper
     helper_method :current_user
     before_action :login_required
 
