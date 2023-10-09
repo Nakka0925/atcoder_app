@@ -2,11 +2,16 @@
 @import "bootstrap";
 
 body {
-    color: white;
+    color: black;
+    margin-top: 80px;
 }
 
 .navbar-title {
     color: white;
+}
+
+.footer {
+    padding-top: 20px;
 }
 
 .footer a {
