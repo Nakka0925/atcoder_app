@@ -1,26 +1,23 @@
-<div class="content">
-    <h2> ログイン </h2>
+<h2> ログイン </h2>
 
-    <div class="login-form">
-        <%= form_with scope: :session, local: true do |f| %>
-            <div class="mb-3 row login-block">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <%= f.text_field :email, class: "form-control-plaintext", id: "session_email" %>
-                </div>
+<div class="login-form">
+    <%= form_with scope: :session, local: true do |f| %>
+        <div class="mb-3 row login-block">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <%= f.text_field :email, class: "form-control-plaintext", id: "session_email" %>
             </div>
-            <div class="mb-3 row login-block">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                    <%= f.password_field :password, class: "form-control-control-plaintext", id: "session_password" %>
-                </div>
+        </div>
+        <div class="mb-3 row login-block">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <%= f.password_field :password, class: "form-control-control-plaintext", id: "session_password" %>
             </div>
-            <div class="mb-3 row login-block">
-                <div class="col-sm-10">
-                    <%= f.submit "ログインする", class: "btn btn-primary" %>
-                </div>
+        </div>
+        <div class="mb-3 row login-block">
+            <div class="col-sm-10">
+                <%= f.submit "ログインする", class: "btn btn-primary" %>
             </div>
-        <% end %>
-    </div>
-
+        </div>
+    <% end %>
 </div>
