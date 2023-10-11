@@ -15,6 +15,18 @@ begin
     end
 
     puts "JSONデータがproblem.jsonに正常に保存されました"
+
+    contests = []
+    json_data.each do |contents|
+      contests.push(contents["problem_id"])
+    end
+
+    File.open("contest.json", 'w') do |file|
+      file.write(JSON.pretty_generate(contests))
+    end
+
+    puts "JSONデータがcontest.jsonに正常に保存されました"
+    
   else
     puts "データの取得に失敗しました。HTTPレスポンスコード:#{response.code}"
   end

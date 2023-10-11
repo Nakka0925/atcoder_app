@@ -1,1 +1,6 @@
-<p>aaaaaaaaaa</p>
+<%= form_with url: problem_create_path, local: true do |f| %>
+        <% if session[:res_data] != nil %>  
+            <%= link_to "#{session["contest_id"]}の#{session["problem_index"]}問題", "https://atcoder.jp/contests/#{session["contest_id"]}/tasks/#{session["problem_id"]}", target: "_blank" %>
+        <% end %>
+        <%= f.submit "作成", class: "btn" %>
+<% end %>
