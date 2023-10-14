@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   root to: 'getproblems#top'
 
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  # ホーム関係
+  get '/help', to: 'getproblems#help'
+  get '/select', to: 'getproblems#select'
+  get '/abc', to: 'getproblems#abc'
+
+  # ログイン関係
+  get '/signup', to: 'sessions#signup'
+  post '/signup', to: 'sessions#create'
+  get '/signin', to: 'sessions#signin'
+  delete '/logout', to: 'sessions#destroy'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

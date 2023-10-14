@@ -6,9 +6,17 @@ body {
     // margin-top: 80px;
 }
 
+li {
+    list-style: none;
+}
+
 // header
-.navbar-title {
+.header-link {
     color: white;
+}
+.header-link:hover {
+    color: #dcdcdc;
+    text-decoration: none;
 }
 
 // content
@@ -27,13 +35,17 @@ body {
     margin: 20px auto;
 }
 
-.login-form {
+.form-template {
     padding: 20px;
     border-top: 1px solid #dcdcdc;
     border-bottom: 1px solid #dcdcdc;
 }
 
-.login-block {
+.form-block {
+    margin-top: 20px;
+}
+
+.list-template {
     margin-top: 20px;
 }
 
