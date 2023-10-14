@@ -7,7 +7,11 @@
         <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   '#' %></li>
         <li><%= link_to "Help",   '#' %></li>
-        <li><%= link_to "Log in", '#' %></li>
+        <% if current_user %>
+            <li><%= link_to "Log out", logout_path, data: { turbo_method: :delete }%></li>
+        <% else %>
+            <li><%= link_to "Log in", login_path %></li>
+        <% end %>
         </ul>
     </nav>
     </div>

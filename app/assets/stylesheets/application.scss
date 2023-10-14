@@ -2,11 +2,44 @@
 @import "bootstrap";
 
 body {
+    color: black;
+    // margin-top: 80px;
+}
+
+// header
+.navbar-title {
     color: white;
 }
 
-.navbar-title {
-    color: white;
+// content
+.container-bg {
+    // height: 100vh;
+    padding: 20px;
+    background-color: white;
+    display: block;
+}
+.content {
+    padding-top: 100px;
+}
+
+.content h2 {
+    // border-bottom: 1px solid #a9a9a9;
+    margin: 20px auto;
+}
+
+.login-form {
+    padding: 20px;
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.login-block {
+    margin-top: 20px;
+}
+
+// footer
+.footer {
+    padding-top: 20px;
 }
 
 .footer a {
@@ -20,4 +53,10 @@ body {
 
 .footer nav {
     border-top: 1px solid black;
+}
+
+// background
+.big-bg {
+    height: 100vh;
+    background-color: #dcdcdc  ;
 }

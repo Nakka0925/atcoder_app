@@ -3,12 +3,23 @@
   <head>
     <title>TOP</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_importmap_tags %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <%= yield %>
+    <div class="big-bg">
+      <%= render 'layouts/header' %>
+      <div class="container container-bg content">
+
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-success">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <%= yield %>
+      </div>
       <%= render 'layouts/footer' %>
     </div>
   </body>
+
 </html>
