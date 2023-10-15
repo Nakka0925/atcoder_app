@@ -2,11 +2,11 @@
     <div class="container">
     <nav>
         <ul class="nav navbar-nav navbar-left">
-        <h1><%= link_to "GetCoder", root_path %></h1>
+        <h1><%= link_to "GetCoder", root_path, class: "header-title" %></h1>
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", '#' %></li>
+        <li><%= link_to "Help", help_path %></li>
         <li><%= link_to "Login", login_path %></li>
         <li><%= link_to "Signup", signup_path %></li>
         </ul>

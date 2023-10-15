@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'getproblems#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # 基本機能
+  get '/help', to: 'getproblems#help'
 
   # ログイン周り
   get '/signup', to: 'users#new'
