@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # 基本機能
   get '/help', to: 'getproblems#help'
 
+  # API
+  get '/problems', to: 'problems_api#new'
+
   # ログイン周り
   get '/signup', to: 'users#new'
   get '/login',   to: 'sessions#new'
