@@ -1,23 +1,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-    color: white;
-}
+// header
 
 .navbar-title {
     color: white;
 }
 
-.footer a {
-    color: black;
-    text-decoration: none;
+input {
+    height: auto !important;
 }
 
-.footer a:hover {
-    color: gray;
+// body
+.content-template {
+    padding-top: 100px;
 }
 
-.footer nav {
-    border-top: 1px solid black;
+    // form
+.form-template {
+    padding: 20px;
+    border-top: 1px solid #dcdcdc ;
+    border-bottom: 1px solid #dcdcdc ;
+}
+
+.form-item {
+    margin: 10px auto;
 }
