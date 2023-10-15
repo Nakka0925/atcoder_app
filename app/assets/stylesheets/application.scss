@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body { padding-top: 100px; }
+
 // header
 
 .navbar-title {
@@ -13,7 +15,7 @@ input {
 
 // body
 .content-template {
-    padding-top: 100px;
+    color: black;
 }
 
     // form
