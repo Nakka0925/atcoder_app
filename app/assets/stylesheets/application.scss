@@ -38,3 +38,42 @@ input {
     margin-top: 20px;
     list-style: none;
 }
+
+// footer
+footer {
+    max-width: 100%;
+    color: white;
+}
+
+footer a {
+    color: white
+}
+
+footer a:hover {
+    color: #dcdcdc;
+}
+
+.footer-itemize {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    grid-template-rows: 200px 300px;
+    // border-top: 1px solid #dcdcdc;
+    background-color: #696969;
+}
+
+.item {
+    padding: 40px;
+    // border: 1px solid #dcdcdc;
+}
+
+.item h5 {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid orange;
+}
+
+.item-itemize li {
+    list-style: none;
+}
