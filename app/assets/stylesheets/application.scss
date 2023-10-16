@@ -1,7 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body { padding-top: 100px; }
+body {
+    font-size: 16px;
+    text-align: 1.7;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    color: black;
+    padding-top: 100px;
+}
 
 // header
 
@@ -23,7 +29,17 @@ input {
     color: black;
 }
 
+.itemize-template {
+    margin: 20px auto;
+}
+
     // form
+
+article {
+    padding: 10px;
+    border-top: 1px solid #dcdcdc;
+}
+
 .form-template {
     padding: 20px;
     border-top: 1px solid #dcdcdc ;
@@ -76,4 +92,11 @@ footer a:hover {
 
 .item-itemize li {
     list-style: none;
+}
+
+.footer-bar {
+    padding: 10px;
+    text-align: center;
+    background-color: black;
+    color: white;
 }
