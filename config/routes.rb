@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'getproblems#index'
+  root to: 'problems_api#new'
 
   # 基本機能
   get '/help', to: 'getproblems#help'

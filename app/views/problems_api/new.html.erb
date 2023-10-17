@@ -1,3 +1,20 @@
-<h1>ProblemsApi#new</h1>
-<p>Find me in app/views/problems_api/new.html.erb</p>
-<%= @responseJson %>
+<% provide(:title, "Problems") %>
+
+<div class="content-template">
+    <h2>Problems</h2>
+    <table class="table table-template">
+            <% @contestId.to_a.reverse.each do |arry| %>
+                <% contestName = [@contestUrl, arry[0]].join('/') %>
+                <% contestTask = [contestName, 'tasks', arry[0]].join('/') %>
+                <tr>
+                    <% if arry[0].include?("abc") %>
+                        <td><%= link_to arry[0], contestName %></td>
+                        <% arry[1].each do |v| %>
+                            <% contestTaskUrl = [contestTask, v.downcase].join('_') %>
+                            <td><%= link_to @contestIdTitle[arry[0]][v], contestTaskUrl %></td>
+                        <% end %>
+                    <% end %>
+                </tr>
+            <% end %>
+    </table>
+</div>
