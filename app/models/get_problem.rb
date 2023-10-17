@@ -1,8 +1,13 @@
 require 'json'
 
 class GetProblem < ApplicationRecord
-    def get_random_contest(parsed_data,a,b,c,d,e,f,g,ex)
+    def get_random_contest(parsed_data, params)
+        abc, arc = params.values_at(:abc, :arc).map(&:to_i)
+        a, b, c, d, e, f, g, ex = params.values_at(:a, :b, :c, :d, :e, :f, :g, :ex).map(&:to_i)
+        
         filtered_data = parsed_data.select do |problem|
+            (abc == 1 && problem["contest_id"].to_s.match?("abc")) ||
+            (arc == 1 && problem["contest_id"].to_s.match?("arc")) ||
             (a == 1 && problem["problem_index"] == "A") ||
             (b == 1 && problem["problem_index"] == "B") ||
             (c == 1 && problem["problem_index"] == "C") ||
@@ -22,7 +27,7 @@ class GetProblem < ApplicationRecord
     end
 
 
-    def resoponse_problem(a,b,c,d,e,f,g,ex)
+    def resoponse_problem(params)
         file_path = "problem.json"
 
         begin
@@ -39,7 +44,7 @@ class GetProblem < ApplicationRecord
             puts "Error parsing JSON: #{e.message}"
         end
 
-        target_problem_id = get_random_contest(parsed_data,a,b,c,d,e,f,g,ex)
+        target_problem_id = get_random_contest(parsed_data, params)
 
 
         # 指定したcontest_idに対応するproblem_idとproblem_indexを格納する配列

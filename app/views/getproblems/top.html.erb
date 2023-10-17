@@ -1,6 +1,18 @@
 <%= form_with url: problem_create_path, local: true do |form| %>
     <div style="display: flex; flex-direction: row;">
         <div style="margin-right: 20px;">
+            <%= form.check_box :abc %>
+            <%= form.label :a, "ABC" %>
+        </div>
+        
+        <div style="margin-right: 20px;">
+            <%= form.check_box :arc %>
+            <%= form.label :b, "ARC" %>
+        </div>
+    </div>
+    
+    <div style="display: flex; flex-direction: row;">
+        <div style="margin-right: 20px;">
         <%= form.check_box :a %>
         <%= form.label :a, "A" %>
         </div>
