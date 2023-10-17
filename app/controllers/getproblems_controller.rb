@@ -16,7 +16,7 @@ class GetproblemsController < ApplicationController
 
     session[:res_data] = entry.resoponse_problem(a,b,c,d,e,f,g,ex)
     session[:contest_id] = session[:res_data][0]["contest_id"]
-    session[:problem_id] = session[:res_data][0]["problem_id"]
+    session[:problem_id] = session[:res_data][0]["id"]
     session[:problem_index] = session[:res_data][0]["problem_index"]
     redirect_to root_path
   end

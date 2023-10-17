@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require 'uri'
 
-uri = URI.parse('https://kenkoooo.com/atcoder/resources/contest-problem.json')
+uri = URI.parse('https://kenkoooo.com/atcoder/resources/merged-problems.json')
 
 begin
   response = Net::HTTP.get_response(uri)
@@ -20,12 +20,6 @@ begin
     json_data.each do |contents|
       contests.push(contents["problem_id"])
     end
-
-    File.open("contest.json", 'w') do |file|
-      file.write(JSON.pretty_generate(contests))
-    end
-
-    puts "JSONデータがcontest.jsonに正常に保存されました"
     
   else
     puts "データの取得に失敗しました。HTTPレスポンスコード:#{response.code}"
