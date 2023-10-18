@@ -7,8 +7,13 @@
         <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", help_path %></li>
-        <li><%= link_to "Login", login_path %></li>
-        <li><%= link_to "Signup", signup_path %></li>
+        <% if logged_in? %>
+            <%= link_to "Logout", logout_path, data: { "turbo-method": :delete } %>
+            <li><%= button_to '削除', logout_path, class: 'btn btn-outline-dark', method: :delete %></li>
+        <% else %>
+            <li><%= link_to "Login", login_path %></li>
+            <li><%= link_to "Signup", signup_path %></li>
+        <% end %>
         </ul>
     </nav>
     </div>
