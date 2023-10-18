@@ -2,61 +2,111 @@
 @import "bootstrap";
 
 body {
+    font-size: 16px;
+    text-align: 1.7;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
     color: black;
-    // margin-top: 80px;
-}
-
-// header
-.navbar-title {
-    color: white;
-}
-
-// content
-.container-bg {
-    // height: 100vh;
-    padding: 20px;
-    background-color: white;
-    display: block;
-}
-.content {
     padding-top: 100px;
 }
 
-.content h2 {
-    // border-bottom: 1px solid #a9a9a9;
+// header
+
+.header-title {
+    color: white;
+}
+
+.header-title:hover {
+    text-decoration: none;
+    color: #dcdcdc;
+}
+
+input {
+    height: auto !important;
+}
+
+// body
+.content-template {
+    color: black;
+}
+
+.itemize-template {
     margin: 20px auto;
 }
 
-.login-form {
-    padding: 20px;
+    // form
+
+article {
+    padding: 10px;
     border-top: 1px solid #dcdcdc;
-    border-bottom: 1px solid #dcdcdc;
 }
 
-.login-block {
+.form-template {
+    padding: 20px;
+    border-top: 1px solid #dcdcdc ;
+    border-bottom: 1px solid #dcdcdc ;
+}
+
+.form-item {
+    margin: 10px auto;
+}
+
+.form-footer li {
     margin-top: 20px;
+    list-style: none;
+}
+
+.teble-template {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.table-template td {
+    vertical-align: center;
+    // border: 1px solid black;
 }
 
 // footer
-.footer {
-    padding-top: 20px;
+footer {
+    max-width: 100%;
+    color: white;
 }
 
-.footer a {
-    color: black;
-    text-decoration: none;
+footer a {
+    color: white
 }
 
-.footer a:hover {
-    color: gray;
+footer a:hover {
+    color: #dcdcdc;
 }
 
-.footer nav {
-    border-top: 1px solid black;
+.footer-itemize {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    grid-template-rows: 200px 300px;
+    // border-top: 1px solid #dcdcdc;
+    background-color: #696969;
 }
 
-// background
-.big-bg {
-    height: 100vh;
-    background-color: #dcdcdc  ;
+.item {
+    padding: 40px;
+    // border: 1px solid #dcdcdc;
+}
+
+.item h5 {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid orange;
+}
+
+.item-itemize li {
+    list-style: none;
+}
+
+.footer-bar {
+    padding: 10px;
+    text-align: center;
+    background-color: black;
+    color: white;
 }

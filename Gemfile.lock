@@ -98,6 +98,7 @@ GEM
     ffi (1.16.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    httpclient (2.8.3)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -235,6 +236,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.4.1)
   capybara
   debug
+  httpclient
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)
