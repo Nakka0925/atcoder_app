@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'problems_api#new'
+  root to: 'getproblems#top'
 
   # 基本機能
   get '/help', to: 'getproblems#help'
+  post '/problem_create',    to: 'getproblems#create'
 
   # API
   get '/problems', to: 'problems_api#new'
