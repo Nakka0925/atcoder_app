@@ -2,12 +2,9 @@ require 'json'
 
 class GetProblem < ApplicationRecord
     def get_random_contest(parsed_data, params)
-        abc, arc = params.values_at(:abc, :arc).map(&:to_i)
         a, b, c, d, e, f, g, ex = params.values_at(:a, :b, :c, :d, :e, :f, :g, :ex).map(&:to_i)
         
         filtered_data = parsed_data.select do |problem|
-            (abc == 1 && problem["contest_id"].to_s.match?("abc")) ||
-            (arc == 1 && problem["contest_id"].to_s.match?("arc")) ||
             (a == 1 && problem["problem_index"] == "A") ||
             (b == 1 && problem["problem_index"] == "B") ||
             (c == 1 && problem["problem_index"] == "C") ||
@@ -16,6 +13,20 @@ class GetProblem < ApplicationRecord
             (f == 1 && problem["problem_index"] == "F") ||
             (g == 1 && problem["problem_index"] == "G") ||
             (ex == 1 && problem["problem_index"] == "Ex") 
+        end
+
+        if filtered_data.empty?
+            filtered_data = parsed_data
+        end
+
+        abc, arc = params.values_at(:abc, :arc).map(&:to_i)
+        if abc == 0 && arc == 0 
+            return filtered_data.sample
+        end
+
+        filtered_data = filtered_data.select do |problem|
+            (abc == 1 && problem["contest_id"].to_s.match?("abc")) ||
+            (arc == 1 && problem["contest_id"].to_s.match?("arc")) 
         end
 
         if filtered_data.empty?
