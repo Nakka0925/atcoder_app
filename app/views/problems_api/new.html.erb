@@ -8,10 +8,10 @@
                 <% contestTask = [contestName, 'tasks', arry[0]].join('/') %>
                 <tr>
                     <% if arry[0].include?("abc") %>
-                        <td><%= link_to arry[0], contestName %></td>
+                        <td><%= link_to arry[0], contestName, target: "_blank"%></td>
                         <% arry[1].each do |v| %>
                             <% contestTaskUrl = [contestTask, v.downcase].join('_') %>
-                            <td><%= link_to @contestIdTitle[arry[0]][v], contestTaskUrl %></td>
+                            <td><%= link_to @contestIdTitle[arry[0]][v], contestTaskUrl, target: "_blank" %></td>
                         <% end %>
                     <% end %>
                 </tr>

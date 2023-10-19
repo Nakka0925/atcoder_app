@@ -4,13 +4,13 @@ class ProblemsApiController < ApplicationController
   require 'uri'
 
   def new
-    url = URI.parse("https://kenkoooo.com/atcoder/resources/problems.json")
-      response = Net::HTTP.get_response(url)
+      file_path = "problem.json"
 
       @contestUrl = "https://atcoder.jp/contests"
       @contestTaskUrl = "https://atcoder.jp/contests/tasks"
 
-      @responseJson = JSON.parse(response.body)
+      json_data = File.read(file_path)
+      @responseJson = JSON.parse(json_data)
       @contestId = Hash.new { |h, k| h[k] = Array.new }
       @contestIdTitle = Hash.new { |h, k| h[k] = Hash.new(0)}
 
