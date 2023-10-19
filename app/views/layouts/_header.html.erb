@@ -6,6 +6,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "ABC", problems_path %>
         <li><%= link_to "Help", help_path %></li>
         <% if current_user %>
             <li><%= link_to "Logout", logout_path, data: { "turbo-method": :delete } %></li>
