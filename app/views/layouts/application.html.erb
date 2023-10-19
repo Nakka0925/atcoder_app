@@ -3,6 +3,7 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_importmap_tags %>
   </head>
   <body>
     <%= render 'layouts/header' %>
@@ -14,4 +15,5 @@
     </div>
     <%= render 'layouts/footer' %>
   </body>
+
 </html>

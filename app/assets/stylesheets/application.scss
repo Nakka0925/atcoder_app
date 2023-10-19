@@ -55,6 +55,16 @@ article {
     list-style: none;
 }
 
+.teble-template {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.table-template td {
+    vertical-align: center;
+    // border: 1px solid black;
+}
+
 // footer
 footer {
     max-width: 100%;
