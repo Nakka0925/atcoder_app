@@ -41,3 +41,5 @@ $ exit
 $ tail -f log/development.log
 ```
 
+
+<small>&copy;</small>MizutaLabo
