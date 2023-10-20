@@ -2,6 +2,7 @@ module SessionsHelper
   # 渡されたセッションでログインする
   def log_in(user)
     session[:user_id] = user.id
+    session[:name] = user.name
   end
 
   def current_user
