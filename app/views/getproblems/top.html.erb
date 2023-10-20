@@ -1,1 +1,69 @@
-<p>aaaaaaaaaa</p>
+<% provide(:title, 'TOP') %>
+<div class="content-template">
+    <h2>Home</h2>
+    ランダムな問題を提案します。
+    <div class="form-template">
+        <%= form_with url: problem_create_path, local: true do |form| %>
+            <div style="display: flex; flex-direction: row;">
+                <div style="margin-right: 20px;">
+                    <%= form.check_box :abc %>
+                    <%= form.label :a, "ABC" %>
+                </div>
+
+                <div style="margin-right: 20px;">
+                    <%= form.check_box :arc %>
+                    <%= form.label :b, "ARC" %>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: row;">
+                <div style="margin-right: 20px;">
+                    <%= form.check_box :a %>
+                    <%= form.label :a, "A" %>
+                </div>
+
+                <div style="margin-right: 20px;">
+                    <%= form.check_box :b %>
+                    <%= form.label :b, "B" %>
+                </div>
+
+                <div style="margin-right: 20px;">
+                    <%= form.check_box :c %>
+                    <%= form.label :c, "C" %>
+                </div>
+
+                <div style="margin-right: 20px;">
+                    <%= form.check_box :d %>
+                    <%= form.label :d, "D" %>
+                </div>
+
+                <div style="margin-right: 20px;">
+                    <%= form.check_box :e %>
+                    <%= form.label :e, "E" %>
+                </div>
+
+                <div style="margin-right: 20px;">
+                    <%= form.check_box :f %>
+                    <%= form.label :f, "F" %>
+                </div>
+
+                <div style="margin-right: 20px;">
+                    <%= form.check_box :g %>
+                    <%= form.label :g, "G" %>
+                </div>
+
+                <div>
+                    <%= form.check_box :ex %>
+                    <%= form.label :ex, "Ex" %>
+                </div>
+
+                <div style="margin-left: 10px;">
+                    <%= form.submit "作成", class: "btn" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <% if session[:res_data] != nil %>
+        <h3><%= link_to "#{session["contest_id"]}の#{session["problem_index"]}問題", "https://atcoder.jp/contests/#{session["contest_id"]}/tasks/#{session["problem_id"]}", target: "_blank" %></h3>
+    <% end %>
+</div>

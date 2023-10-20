@@ -1,26 +1,29 @@
-<div class="content">
-    <h2> ログイン </h2>
+<% provide(:title, "Login") %>
+<div class="content-template">
+    <h2>Login</h2>
 
-    <div class="login-form">
-        <%= form_with scope: :session, local: true do |f| %>
-            <div class="mb-3 row login-block">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <%= f.text_field :email, class: "form-control-plaintext", id: "session_email" %>
-                </div>
+    <div class="row form-template">
+        <div class="col-md-6 col-md-offset-3">
+            <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+
+            <div class="form-item">
+                <%= f.label :email %>
+                <%= f.email_field :email, class: 'form-control' %>
             </div>
-            <div class="mb-3 row login-block">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                    <%= f.password_field :password, class: "form-control-control-plaintext", id: "session_password" %>
-                </div>
+
+            <div class="form-item">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: 'form-control' %>
             </div>
-            <div class="mb-3 row login-block">
-                <div class="col-sm-10">
-                    <%= f.submit "ログインする", class: "btn btn-primary" %>
-                </div>
+
+            <div class="form-item">
+                <%= f.submit "Login", class: "btn btn-primary" %>
+                <% end %>
             </div>
-        <% end %>
+
+        </div>
     </div>
-
+    <ul class="form-footer">
+        <li><%= link_to "新規登録はこちら", signup_path %></li>
+    </ul>
 </div>

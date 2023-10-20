@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_05_080855) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_19_143114) do
+  create_table "algos", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "algo_id"
+    t.string "algo_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["algo_id"], name: "index_algos_on_algo_id", unique: true
+  end
+
   create_table "get_problems", charset: "utf8mb4", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "problems", charset: "utf8mb4", force: :cascade do |t|
+    t.string "problem_id"
+    t.bigint "algo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["algo_id"], name: "fk_rails_12fdc1cdbf"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -25,4 +41,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_05_080855) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "problems", "algos"
 end
