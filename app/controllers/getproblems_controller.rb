@@ -1,5 +1,6 @@
 class GetproblemsController < ApplicationController
   def top
+    @algo_names = Algo.pluck(:algo_name)
   end
 
   def create
