@@ -1,6 +1,8 @@
 class GetproblemsController < ApplicationController
   def top
-    @algo_names = Algo.pluck(:algo_name)
+    if session[:algo_list] == nil
+      session[:algo_list] = Algo.pluck(:algo_name)
+    end
   end
 
   def random_problem
@@ -14,7 +16,8 @@ class GetproblemsController < ApplicationController
   end
 
   def algo_problem
-    name_to_id = Algo.where(algo_name: params[:algo_test])[0][:algo_id]
+    session[:selected_algo] = params[:selecte_algo]
+    name_to_id = Algo.where(algo_name: params[:selecte_algo])[0][:algo_id]
     session[:algo] = Problem.where(algo_id: name_to_id).sample
 
     redirect_to root_path

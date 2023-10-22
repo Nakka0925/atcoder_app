@@ -28,9 +28,16 @@ begin
       csv << json_data.first.keys.slice(..3).push("algo_id")
       # データ行を追加
       json_data.each do |hash|
-        idx = problem_id.index(hash.values[0])
-        if idx != nil
-          csv << hash.values.slice(..3).push(algo[idx][1])
+        idx_arr = []
+        problem_id.each_with_index do |x, i|
+          if x == hash.values[0]
+            idx_arr.push(i)
+          end
+        end
+        if 0 < idx_arr.size
+          idx_arr.each do |idx|
+            csv << hash.values.slice(..3).push(algo[idx][1])
+          end
         else
           csv << hash.values.slice(..3).push(nil)
         end 
