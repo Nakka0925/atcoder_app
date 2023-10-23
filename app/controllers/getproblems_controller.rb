@@ -25,7 +25,7 @@ class GetproblemsController < ApplicationController
 
     name_to_id = Algo.where(algo_name: params[:selecte_algo])[0][:algo_id]
     if name_to_id.present?
-      session[:algo] = Problem.where(algo_id: name_to_id.algo_id).sample
+      session[:algo] = Problem.where(algo_id: name_to_id).sample
     else
       flash[:error] = "選択されたアルゴリズムが見つかりません。"
     end
