@@ -2,7 +2,6 @@ class GetproblemsController < ApplicationController
   def top
     # セッションにアルゴリズムリストがない場合に初期化
     session[:algo_list] ||= Algo.pluck(:algo_name)
-    end
   end
 
   def random_problem
