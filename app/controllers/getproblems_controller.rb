@@ -1,24 +1,35 @@
 class GetproblemsController < ApplicationController
   def top
-    if session[:algo_list] == nil
-      session[:algo_list] = Algo.pluck(:algo_name)
+    # セッションにアルゴリズムリストがない場合に初期化
+    session[:algo_list] ||= Algo.pluck(:algo_name)
     end
   end
 
   def random_problem
-    entry = GetProblem.new()
+     # インスタンスを生成して問題を取得
+    entry = GetProblem.new
+    session[:res_data] = entry.response_problem(params)
 
-    session[:res_data] = entry.resoponse_problem(params)
-    session[:contest_id] = session[:res_data][0]["contest_id"]
-    session[:problem_id] = session[:res_data][0]["id"]
-    session[:problem_index] = session[:res_data][0]["problem_index"]
+    if session[:res_data].present?
+      problem = session[:res_data][0]
+      session[:contest_id] = problem["contest_id"]
+      session[:problem_id] = problem["id"]
+      session[:problem_index] = problem["problem_index"]
+    end
+
     redirect_to root_path
   end
 
   def algo_problem
+    # 選択されたアルゴリズムをセッションに保存
     session[:selected_algo] = params[:selecte_algo]
+
     name_to_id = Algo.where(algo_name: params[:selecte_algo])[0][:algo_id]
-    session[:algo] = Problem.where(algo_id: name_to_id).sample
+    if name_to_id.present?
+      session[:algo] = Problem.where(algo_id: name_to_id.algo_id).sample
+    else
+      flash[:error] = "選択されたアルゴリズムが見つかりません。"
+    end
 
     redirect_to root_path
   end
