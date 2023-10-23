@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_19_143114) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_22_112213) do
   create_table "algos", charset: "utf8mb4", force: :cascade do |t|
     t.integer "algo_id"
     t.string "algo_name"
@@ -24,8 +24,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_19_143114) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "problems", charset: "utf8mb4", force: :cascade do |t|
-    t.string "problem_id"
+  create_table "problems", id: false, charset: "utf8mb4", force: :cascade do |t|
+    t.string "id"
+    t.string "contest_id"
+    t.string "problem_index"
+    t.string "name"
     t.bigint "algo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

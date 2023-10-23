@@ -38,7 +38,7 @@ class GetProblem < ApplicationRecord
     end
 
 
-    def resoponse_problem(params)
+    def response_problem(params)
         file_path = "problem.json"
 
         begin

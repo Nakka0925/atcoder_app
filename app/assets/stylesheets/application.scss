@@ -104,6 +104,46 @@ footer a:hover {
     list-style: none;
 }
 
+/* ドロップダウンメニューのスタイル */
+.select-wrapper {
+    width: 200px; /* ドロップダウンメニューの幅 */
+    position: relative;
+}
+
+/* ドロップダウンメニューのスタイル */
+.select-wrapper select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    appearance: none;
+}
+
+/* ドロップダウンアイコンのスタイル */
+.select-wrapper:after {
+    content: "\25BC"; /* ▼のUnicode文字 */
+    font-size: 20px;
+    color: #333;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* ドロップダウンメニューのホバーエフェクト */
+.select-wrapper:hover select {
+    border-color: #555;
+}
+
+.select-wrapper select:active,
+.select-wrapper select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
 .footer-bar {
     padding: 10px;
     text-align: center;
