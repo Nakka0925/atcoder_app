@@ -76,7 +76,12 @@
             <%= form.submit "作成", class: "btn" %>
         <% end %>
         
-        <% if session[:algo] != nil %> 
+        <% if session[:algo] != nil %>
+            <input type="hidden" id="diff" value="<%= session[:algo]["difficulty"] %>">
+            <div class="difficulty-wrapper">
+                <h3>難易度</h3>
+                <h3 class="your-difficulty-element"><%= session[:algo]["difficulty"] %></h3>
+            </div>
             <h3><%= link_to "#{session[:algo]["contest_id"]}の#{session[:algo]["problem_index"]}問題", "https://atcoder.jp/contests/#{session[:algo]["contest_id"]}/tasks/#{session[:algo]["id"]}", target: "_blank"%></h3>
         <% end %>
     </div>

@@ -150,3 +150,13 @@ footer a:hover {
     background-color: black;
     color: white;
 }
+
+.difficulty-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .your-difficulty-element {
+    margin-left: 10px; /* 難易度とテキストの間のスペースを調整 */
+  }
+  
