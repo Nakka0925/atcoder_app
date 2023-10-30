@@ -11,7 +11,15 @@
                         <td><%= link_to arry[0], contestName, target: "_blank"%></td>
                         <% arry[1].each do |v| %>
                             <% contestTaskUrl = [contestTask, v.downcase].join('_') %>
-                            <td><%= link_to @contestIdTitle[arry[0]][v], contestTaskUrl, target: "_blank" %></td>
+                            <% algoId = @contestIdToAlgo[[arry[0], v.downcase].join('_')] %>
+                            <td>
+                                <%= link_to @contestIdTitle[arry[0]][v], contestTaskUrl, target: "_blank" %><br>
+                                <% if algoId.present? %>
+                                    <% algoId.each do |id| %>
+                                        <%= @idToAlgoname[id] %>
+                                    <% end %>
+                                <% end %>
+                            </td>
                         <% end %>
                     <% end %>
                 </tr>

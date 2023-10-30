@@ -36,7 +36,14 @@ begin
     
     problems_diff_uri = URI.parse('https://kenkoooo.com/atcoder/resources/problem-models.json')
     problems_diff_response = Net::HTTP.get_response(problems_diff_uri)
-    problems_diff_data = JSON.parse(problems_diff_response.body)
+    if problems_diff_response.is_a?(Net::HTTPSuccess)
+      problems_diff_data = JSON.parse(problems_diff_response.body)
+      File.open("difficulty.json", 'w') do |file|
+        file.write(JSON.pretty_generate(problems_diff_data))
+      end
+    else
+      puts "データの取得に失敗しました。HTTPレスポンスコード:#{problems_diff_response.code}"
+    end
     
     # CSVデータの生成
     csv_data = CSV.generate do |csv|
