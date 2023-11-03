@@ -8,7 +8,7 @@ CSV.foreach(csv_file_path, headers: true) do |row|
         algo_id: row["algo_id"],
         algo_name: row["algo_name"]
     )
-
+end
 csv_file_path = Rails.root.join('db/csv_data/problem.csv')
 
 # CSVファイルを読み込んでデータベースに保存
