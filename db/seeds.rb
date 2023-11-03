@@ -1,7 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require 'csv'
+
+# CSVファイルのパスを指定
+csv_file_path = Rails.root.join('db/csv_data/algo.csv')
+
+CSV.foreach(csv_file_path, headers: true) do |row|
+    Algo.create!(
+        algo_id: row["algo_id"],
+        algo_name: row["algo_name"]
+    )
+
+csv_file_path = Rails.root.join('db/csv_data/problem.csv')
+
+# CSVファイルを読み込んでデータベースに保存
+CSV.foreach(csv_file_path, headers: true) do |row|
+    Problem.create!(
+        id: row["id"],
+        contest_id: row["contest_id"],
+        problem_index: row["problem_index"],
+        name: row["name"],
+        difficulty: row["difficulty"],
+        algo_id: row["algo_id"]
+    )
+end
