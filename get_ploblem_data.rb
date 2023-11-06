@@ -3,43 +3,63 @@ require 'json'
 require 'uri'
 require 'csv'
 
-uri = URI.parse('https://kenkoooo.com/atcoder/resources/merged-problems.json')
+def calculate_adjusted_difficulty(difficulty)
+  if difficulty.nil?
+    adjusted_diff = nil
+  elsif difficulty <= 400
+    adjusted_diff = (400 / (Math.exp((400 - difficulty) / 400.0)) + 0.5).to_i
+  else
+    adjusted_diff = difficulty
+  end
+  adjusted_diff
+end
+
+# 問題データのURI
+problems_json_uri = URI.parse('https://kenkoooo.com/atcoder/resources/merged-problems.json')
 
 begin
-  response = Net::HTTP.get_response(uri)
+  # 問題データの取得
+  response = Net::HTTP.get_response(problems_json_uri)
 
   if response.is_a?(Net::HTTPSuccess)
-    json_data = JSON.parse(response.body)
+    # JSONデータを取得
+    problems_data = JSON.parse(response.body)
 
+    # 問題データをproblem.jsonに保存
     File.open("problem.json", 'w') do |file|
-      file.write(JSON.pretty_generate(json_data))
+      file.write(JSON.pretty_generate(problems_data))
     end
 
-    puts "JSONデータがproblem.jsonに正常に保存されました"
-    algo = CSV.read("db/csv_data/problem_to_algo.csv",headers: true)
-    problem_id = []
+    # CSVデータの準備
+    algo_data = CSV.read("db/csv_data/problem_to_algo.csv", headers: true)
+    problem_ids = algo_data.map { |row| row[0] }
     
-    algo.each do |ary|
-      problem_id.push(ary[0])
+    problems_diff_uri = URI.parse('https://kenkoooo.com/atcoder/resources/problem-models.json')
+    problems_diff_response = Net::HTTP.get_response(problems_diff_uri)
+    if problems_diff_response.is_a?(Net::HTTPSuccess)
+      problems_diff_data = JSON.parse(problems_diff_response.body)
+      File.open("difficulty.json", 'w') do |file|
+        file.write(JSON.pretty_generate(problems_diff_data))
+      end
+    else
+      puts "データの取得に失敗しました。HTTPレスポンスコード:#{problems_diff_response.code}"
     end
     
+    # CSVデータの生成
     csv_data = CSV.generate do |csv|
-      # ヘッダー行を追加
-      csv << json_data.first.keys.slice(..3).push("algo_id")
-      # データ行を追加
-      json_data.each do |hash|
-        idx_arr = []
-        problem_id.each_with_index do |x, i|
-          if x == hash.values[0]
-            idx_arr.push(i)
-          end
-        end
-        if 0 < idx_arr.size
-          idx_arr.each do |idx|
-            csv << hash.values.slice(..3).push(algo[idx][1])
+      csv << problems_data.first.keys.slice(..3).push("difficulty").push("algo_id")
+      problems_data.each do |problem|
+        diff = problems_diff_data[problem.values[0]]&.fetch("difficulty", nil)
+        diff = calculate_adjusted_difficulty(diff)
+        matching_indices = problem_ids.each_index.select { |i| problem_ids[i] == problem.values[0] }
+        
+        if matching_indices.any?
+          matching_indices.each do |idx|
+            algo_id = algo_data[idx][1]
+            csv << problem.values.slice(..3).push(diff).push(algo_id)
           end
         else
-          csv << hash.values.slice(..3).push(nil)
+          csv << problem.values.slice(..3).push(diff).push(nil)
         end 
       end
     end
@@ -48,8 +68,8 @@ begin
     File.open('db/csv_data/problem.csv', 'w') do |file|
       file.write(csv_data)
     end
-    puts 'CSVファイルに保存しました。'
     
+    puts 'CSVファイルに保存しました。'
   else
     puts "データの取得に失敗しました。HTTPレスポンスコード:#{response.code}"
   end
