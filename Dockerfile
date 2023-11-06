@@ -3,7 +3,7 @@ FROM ruby:3.1.4
 # 公式→https://hub.docker.com/_/ruby
 
 # Rails 7ではWebpackerが標準では組み込まれなくなったので、yarnやnodejsのインストールが不要
-
+RUN apt-get update -qq && apt-get install -y vim
 # ruby3.1のイメージがBundler version 2.3.7で失敗するので、gemのバージョンを追記
 ARG RUBYGEMS_VERSION=3.3.20
 
