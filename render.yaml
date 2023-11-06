@@ -1,0 +1,22 @@
+databases:
+  - name: atcoder_app_production
+    databaseName: atcoder_app_production
+    user: nakanishi
+    region: singapore
+
+services:
+  - type: web
+    name: atcoder_app_production
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: <%= ENV['DATABASE_URL'] %>
+        fromDatabase:
+          name: render_app
+          property: connectionString
+      - key: <%= ENV['RAILS_MASTER_KEY'] %>
+        sync: false
+
