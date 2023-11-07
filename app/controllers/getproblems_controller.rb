@@ -12,7 +12,7 @@ class GetproblemsController < ApplicationController
     if session[:res_data].present?
       problem = session[:res_data][0]
       session[:contest_id] = problem["contest_id"]
-      session[:problem_id] = problem["id"]
+      session[:problem_id] = problem["problem_id"]
       session[:problem_index] = problem["problem_index"]
     end
 

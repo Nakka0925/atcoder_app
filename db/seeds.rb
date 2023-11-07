@@ -14,7 +14,7 @@ csv_file_path = Rails.root.join('db/csv_data/problem.csv')
 # CSVファイルを読み込んでデータベースに保存
 CSV.foreach(csv_file_path, headers: true) do |row|
     Problem.create!(
-        id: row["id"],
+        problem_id: row["problem_id"],
         contest_id: row["contest_id"],
         problem_index: row["problem_index"],
         name: row["name"],

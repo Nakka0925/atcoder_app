@@ -64,7 +64,7 @@ class GetProblem < ApplicationRecord
         # データから指定したcontest_idに対応するproblem_idとproblem_indexを抽出
 
         parsed_data.each do |problem|
-            if problem["id"] == target_problem_id["id"]
+            if problem["problem_id"] == target_problem_id["problem_id"]
                 result << problem
             end
         end
