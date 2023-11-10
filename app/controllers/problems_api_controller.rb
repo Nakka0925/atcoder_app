@@ -31,7 +31,7 @@ class ProblemsApiController < ApplicationController
 
   # アルゴリズムIDを配列として作成
   def load_contest_id_to_algo
-    Problem.group(:id).pluck(:id, Arel.sql('GROUP_CONCAT(algo_id) as algo_ids')).to_h.transform_values do |algo_ids|
+    Problem.group(:problem_id).pluck(:problem_id, Arel.sql('GROUP_CONCAT(algo_id) as algo_ids')).to_h.transform_values do |algo_ids|
       algo_ids&.split(',')&.map(&:to_i) || []
     end
   end
