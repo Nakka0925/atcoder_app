@@ -19,8 +19,8 @@ jobs:
 
     - name: Run script
       run: |
-        chmod +x test.rb
-        ./test.rb
+        chmod +x get_ploblem_data.rb
+        ./get_ploblem_data.rb
 
     - name: Update problem.json
       run: |
