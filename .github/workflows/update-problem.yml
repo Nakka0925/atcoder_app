@@ -1,0 +1,31 @@
+name: Update Label
+
+on:
+  schedule:
+    - cron: "* */24 * * *"  # 毎日UTCの00:00に実行
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v2
+      with:
+        ruby-version: '3.1.4'
+
+    - name: Run script
+      run: |
+        chmod +x test.rb
+        ./test.rb
+
+    - name: Update problem.json
+      run: |
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git add problem.json
+        git commit -m "Update problem.json"
+        git push
