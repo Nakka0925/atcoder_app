@@ -47,7 +47,7 @@ begin
     
     # CSVデータの生成
     csv_data = CSV.generate do |csv|
-      csv << problems_data.first.keys.slice(..3).push("difficulty").push("algo_id")
+      csv << ["problem_id","contest_id","problem_index","name","difficulty","algo_id"]
       problems_data.each do |problem|
         diff = problems_diff_data[problem.values[0]]&.fetch("difficulty", nil)
         diff = calculate_adjusted_difficulty(diff)
