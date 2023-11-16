@@ -21,7 +21,6 @@ jobs:
     - name: Run script
       run: |
         chmod +x get_ploblem_data.rb
-        ls -al  # ファイルの権限を表示
         ruby get_ploblem_data.rb
 
     - name: Update problem.json
