@@ -3,6 +3,7 @@ name: Update Label
 on:
   schedule:
     - cron: "* */24 * * *"  # 毎日UTCの00:00に実行
+  workflow_dispatch:
 
 jobs:
   run-script:
