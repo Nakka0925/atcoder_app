@@ -1,4 +1,4 @@
-id,contest_id,problem_index,name,difficulty,algo_id
+problem_id,contest_id,problem_index,name,difficulty,algo_id
 APG4b_a,APG4b,A,1.00.はじめに,,
 APG4b_bw,APG4b,EX26,3.06,,
 APG4b_bx,APG4b,EX25,3.05,,
