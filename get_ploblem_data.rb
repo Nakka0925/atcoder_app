@@ -63,13 +63,6 @@ begin
         end 
       end
     end
-    
-    # CSVデータをファイルに書き込む
-    File.open('db/csv_data/problem.csv', 'w') do |file|
-      file.write(csv_data)
-    end
-    
-    puts 'CSVファイルに保存しました。'
   else
     puts "データの取得に失敗しました。HTTPレスポンスコード:#{response.code}"
   end
@@ -77,3 +70,42 @@ begin
 rescue StandardError => e
   puts "エラーが発生しました：#{e.message}"
 end
+
+# 既存の problem.csv データを読み込む
+existing_csv_data = CSV.read('db/csv_data/problem.csv', headers: true)
+
+# 新しく生成された csv_data を読み込む
+new_csv_data = CSV.parse(csv_data, headers: true)
+
+# 差分を格納する配列
+differences = []
+
+# existing_csv_data にあって new_csv_data にない行を探す
+existing_csv_data.each do |existing_row|
+  matching_row = new_csv_data.find { |new_row| new_row['problem_id'] == existing_row['problem_id'] }
+  differences << existing_row if matching_row.nil?
+end
+
+# new_csv_data にあって existing_csv_data にない行を探す
+new_csv_data.each do |new_row|
+  matching_row = existing_csv_data.find { |existing_row| existing_row['problem_id'] == new_row['problem_id'] }
+  differences << new_row if matching_row.nil?
+end
+
+# 差分をまとめるCSVファイルに書き込む
+diff_csv_file_path = 'db/csv_data/differences.csv'
+CSV.open(diff_csv_file_path, 'w', headers: true) do |csv|
+  csv << existing_csv_data.headers # ヘッダーを書き込む
+  differences.each do |row|
+    csv << row
+  end
+end
+
+puts "差分を #{diff_csv_file_path} ファイルに保存しました。"
+
+# CSVデータをファイルに書き込む
+File.open('db/csv_data/problem.csv', 'w') do |file|
+  file.write(csv_data)
+end
+
+puts 'CSVファイルに保存しました。'
