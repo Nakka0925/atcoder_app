@@ -1,8 +1,8 @@
 ### 概要
 Atocoderに掲載されている問題から、指定したアルゴリズムを扱う問題をレスポンスしてくれる。
-* URL
+* URL (※少しアクセスに時間がかかります)
 ```
-https://atcoder-app.onrender.com
+https://atcoder-app.onrender.com　
 ```
 
 ## 基本的なDockerのコマンド
