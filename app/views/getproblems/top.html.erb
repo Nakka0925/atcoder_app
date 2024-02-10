@@ -76,13 +76,18 @@
             <%= form.submit "作成", class: "btn" %>
         <% end %>
         
-        <% if session[:algo] != nil %>
-            <input type="hidden" id="diff" value="<%= session[:algo]["difficulty"] %>">
-            <div class="difficulty-wrapper">
-                <h3>難易度</h3>
-                <h3 class="your-difficulty-element"><%= session[:algo]["difficulty"] %></h3>
-            </div>
-            <h3><%= link_to "#{session[:algo]["contest_id"]}の#{session[:algo]["problem_index"]}問題", "https://atcoder.jp/contests/#{session[:algo]["contest_id"]}/tasks/#{session[:algo]["problem_id"]}", target: "_blank"%></h3>
+        <% if @problems.present? %>
+            <% @problems.each do |problem| %>
+                <!-- hidden input に難易度を格納 -->
+                <input type="hidden" class="difficulty" value="<%= problem.difficulty %>">
+                <div class="difficulty-wrapper">
+                    <!-- 問題へのリンク -->
+                    <h4><%= link_to "#{problem.contest_id}の#{problem.problem_index}問題", "https://atcoder.jp/contests/#{problem.contest_id}/tasks/#{problem.problem_id}", target: "_blank" %></h4>
+                    <!-- 各問題の難易度を表示 -->
+                    <h5 class="difficulty-num"> 難易度 </h5>
+                    <h5 class="your-difficulty-element"><%= problem.difficulty %></h5>
+                </div>
+            <% end %>
         <% end %>
     </div>
 </div>
