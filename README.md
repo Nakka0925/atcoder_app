@@ -48,5 +48,17 @@ $ exit
 $ tail -f log/development.log
 ```
 
+## rubocop
+
+コード解析を機械的に行い、コードの一貫性の維持する
+
+以下のコマンドでコード解析を実行
+
+```
+$ rubocop -A
+```
+
+無視したい場合は.rubocopに記載する
+
 
 <small>&copy;</small>MizutaLabo
