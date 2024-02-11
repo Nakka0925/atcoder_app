@@ -24,16 +24,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_27_122434) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "problems", id: false, charset: "utf8mb4", force: :cascade do |t|
-    t.string "id"
+  create_table "problems", charset: "utf8mb4", force: :cascade do |t|
+    t.string "problem_id"
     t.string "contest_id"
     t.string "problem_index"
     t.string "name"
-    t.bigint "algo_id"
+    t.integer "algo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "difficulty"
-    t.index ["algo_id"], name: "fk_rails_12fdc1cdbf"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -45,5 +44,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_27_122434) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "problems", "algos"
 end

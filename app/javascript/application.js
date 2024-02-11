@@ -16,16 +16,24 @@ const theme = {
   };
 
 document.addEventListener('turbo:load', (event) => {
-  const algoDifficulty = Math.floor(document.getElementById('diff').value/400);
-  const difficultyElement = document.querySelector('.your-difficulty-element');
-  
-  if (algoDifficulty == 0 ) {
-    difficultyElement.style.color = "#808080"; // Green color
-  } else if (algoDifficulty == 1) {
-    difficultyElement.style.color = "#804000"; // Orange color
-  } else if (algoDifficulty == 2) {
-    difficultyElement.style.color = "#008000"; // Red color
-  } else {
-    difficultyElement.style.color = "#00C0C0"; // Default color
-  };
+  // 各要素をクラス名で取得
+  const difficultyElements = document.querySelectorAll('.difficulty');
+
+  // 各要素に対してループ
+  difficultyElements.forEach(element => {
+    // 各要素の難易度を取得し、計算
+    const algoDifficulty = Math.floor(element.value / 400);
+    const difficultyElement = element.nextElementSibling.querySelector('.your-difficulty-element');
+    
+    // 難易度に応じた色を適用
+    if (algoDifficulty == 0) {
+      difficultyElement.style.color = theme.difficultyGreyColor;
+    } else if (algoDifficulty == 1) {
+      difficultyElement.style.color = theme.difficultyBrownColor;
+    } else if (algoDifficulty == 2) {
+      difficultyElement.style.color = theme.difficultyGreenColor;
+    } else {
+      difficultyElement.style.color = theme.difficultyCyanColor;
+    }
+  });
 });

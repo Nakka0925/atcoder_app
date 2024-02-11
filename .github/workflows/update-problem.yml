@@ -1,0 +1,32 @@
+name: Update Problem
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" 
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1.4'
+
+    - name: Run script
+      run: |
+        chmod +x get_ploblem_data.rb
+        ruby get_ploblem_data.rb
+
+    - name: Update problem.json
+      run: |
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git add problem.json db/csv_data/problem.csv
+        git commit -m "Update problem.json"
+        git push

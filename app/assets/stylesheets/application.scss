@@ -154,9 +154,13 @@ footer a:hover {
 .difficulty-wrapper {
     display: flex;
     align-items: center;
-  }
+}
   
-  .your-difficulty-element {
+.your-difficulty-element {
     margin-left: 10px; /* 難易度とテキストの間のスペースを調整 */
-  }
+}
+
+.difficulty-num {
+    margin-left: 10px;
+}
   

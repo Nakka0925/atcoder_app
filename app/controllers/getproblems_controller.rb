@@ -2,6 +2,11 @@ class GetproblemsController < ApplicationController
   def top
     # セッションにアルゴリズムリストがない場合に初期化
     session[:algo_list] ||= Algo.pluck(:algo_name)
+    
+    if session[:selected_algo].present?
+      name_to_id = Algo.where(algo_name: session[:selected_algo]).pluck(:algo_id).first
+      @problems = Problem.where(algo_id: name_to_id) if name_to_id.present?
+    end
   end
 
   def random_problem
@@ -22,13 +27,6 @@ class GetproblemsController < ApplicationController
   def algo_problem
     # 選択されたアルゴリズムをセッションに保存
     session[:selected_algo] = params[:selecte_algo]
-
-    name_to_id = Algo.where(algo_name: params[:selecte_algo])[0][:algo_id]
-    if name_to_id.present?
-      session[:algo] = Problem.where(algo_id: name_to_id).sample
-    else
-      flash[:error] = "選択されたアルゴリズムが見つかりません。"
-    end
 
     redirect_to root_path
   end
