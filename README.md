@@ -1,6 +1,6 @@
 ### 概要
 Atocoderに掲載されている問題から、指定したアルゴリズムを扱う問題をレスポンスしてくれる。
-* URL (※少しアクセスに時間がかかります)
+* URL 
 ```
 https://atcoder-app.onrender.com　
 ```
