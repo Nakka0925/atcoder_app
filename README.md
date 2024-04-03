@@ -1,6 +1,6 @@
 ### 概要
 Atocoderに掲載されている問題から、指定したアルゴリズムを扱う問題をレスポンスしてくれる。
-* URL (※少しアクセスに時間がかかります)
+* URL 
 ```
 https://atcoder-app.onrender.com　
 ```
@@ -47,6 +47,18 @@ $ exit
 ```
 $ tail -f log/development.log
 ```
+
+## rubocop
+
+コード解析を機械的に行い、コードの一貫性の維持する
+
+以下のコマンドでコード解析を実行
+
+```
+$ rubocop -A
+```
+
+無視したい場合は.rubocopに記載する
 
 
 <small>&copy;</small>MizutaLabo
