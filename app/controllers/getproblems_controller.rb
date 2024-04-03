@@ -4,7 +4,7 @@
 class GetproblemsController < ApplicationController
   def top
     # セッションにアルゴリズムリストがない場合に初期化
-    session[:algo_list] ||= Algo.pluck(:algo_name)
+    session[:algo_list] = Algo.pluck(:algo_name)
 
     return unless session[:selected_algo].present?
 
