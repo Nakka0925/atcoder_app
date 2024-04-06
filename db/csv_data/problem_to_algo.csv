@@ -1,55 +1,319 @@
 problem_id,algo_id
-abc007_3, 2
-abc088_d, 2
-abc270_c, 2
-abc284_c, 2
-abc287_c, 2
-abc288_c, 2
-abc146_d, 2
-abc151_d, 2
-abc160_d, 2
-abc168_d, 2
-abc176_d, 2
-abc209_d, 2
-abc211_d, 2
-abc224_d, 2
-abc272_d, 2
-dfs_a, 3
-abc029_c, 3
-abc054_c, 3
-abc059_c, 3
-abc104_c, 3
-abc114_c, 3
-abc119_c, 3
-abc204_c, 3
-abc233_c, 3
-abc256_c, 3
-abc270_c, 3
-abc284_c, 3
-abc287_c, 3
-abc288_c, 3
-abc138_d, 3
-abc209_d, 3
-abc213_d, 3
-abc236_d, 3
-abc268_d, 3
-abc020_c, 1
-abc030_c, 1
-arc084_a, 1
-abc146_c, 1
-abc172_c, 1
-abc231_c, 1
-abc271_c, 1
-abc023_d, 1
-abc026_d, 1
-abc034_d, 1
-abc119_d, 1
-abc124_d, 1
-abc143_d, 1
-abc203_d, 1
-abc205_d, 1
-abc227_d, 1
-abc229_d, 1
-abc246_d, 1
-abc248_d, 1
-abc257_d, 1
+abc200_e,4
+abc200_e,9
+abc201_e,9
+abc201_f,4
+abc201_f,9
+abc202_d,4
+abc202_e,3
+abc202_e,1
+abc202_f,4
+abc203_d,1
+abc203_d,9
+abc203_f,4
+abc203_f,1
+abc204_e,11
+abc204_e,8
+abc205_d,1
+abc206_b,1
+abc206_f,5
+abc207_e,4
+abc208_b,4
+abc208_b,6
+abc208_f,9
+abc209_d,2
+abc209_d,3
+abc209_f,9
+abc210_d,4
+abc210_e,10
+abc210_f,9
+abc211_c,4
+abc211_d,2
+abc211_f,9
+abc212_c,1
+abc212_d,9
+abc212_e,4
+abc212_f,1
+abc214_c,11
+abc214_e,1
+abc214_f,9
+abc214_g,4
+abc215_d,4
+abc215_f,1
+abc215_f,7
+abc216_e,1
+abc216_f,4
+abc216_g,11
+abc216_h,4
+abc217_d,1
+abc217_e,1
+abc217_f,4
+abc218_d,1
+abc218_e,6
+abc218_g,1
+abc218_h,6
+abc218_h,1
+abc219_d,4
+abc219_h,4
+abc220_f,3
+abc221_g,4
+abc221_h,4
+abc221_h,9
+abc222_d,9
+abc222_f,11
+abc222_f,9
+abc223_c,1
+abc223_d,5
+abc223_f,9
+abc223_g,2
+abc224_d,2
+abc224_e,4
+abc224_f,9
+abc224_f,6
+abc224_g,1
+abc225_e,6
+abc226_c,2
+abc226_c,3
+abc226_f,4
+abc226_h,4
+abc227_d,1
+abc228_d,1
+abc228_f,9
+abc228_g,4
+abc228_h,8
+abc228_h,9
+abc229_d,7
+abc229_d,9
+abc229_g,1
+abc229_g,9
+abc230_f,6
+abc230_f,4
+abc230_f,9
+abc231_c,1
+abc231_f,1
+abc231_g,4
+abc232_f,4
+abc232_g,11
+abc233_c,3
+abc233_d,9
+abc233_h,1
+abc234_d,1
+abc234_f,4
+abc234_g,4
+abc234_g,9
+abc234_h,7
+abc235_d,2
+abc235_e,10
+abc235_f,4
+abc235_g,4
+abc236_e,1
+abc236_e,4
+abc236_g,4
+abc236_g,1
+abc236_h,4
+abc237_e,11
+abc238_e,9
+abc238_e,2
+abc238_f,1
+abc238_g,9
+abc240_c,4
+abc240_e,3
+abc240_f,8
+abc240_h,4
+abc240_h,3
+abc240_h,1
+abc241_c,9
+abc241_d,1
+abc242_c,4
+abc242_f,4
+abc242_h,4
+abc243_e,12
+abc243_g,9
+abc244_e,4
+abc244_f,2
+abc244_h,8
+abc244_h,1
+abc245_c,4
+abc246_d,7
+abc246_g,1
+abc246_g,4
+abc247_c,4
+abc247_e,7
+abc248_c,4
+abc248_c,9
+abc248_d,1
+abc248_d,9
+abc248_f,4
+abc248_g,3
+abc249_e,4
+abc249_e,9
+abc250_d,1
+abc250_d,7
+abc250_g,4
+abc250_g,1
+abc250_g,6
+abc250_h,10
+abc250_h,11
+abc251_e,4
+abc251_f,2
+abc251_f,3
+abc251_h,9
+abc252_d,4
+abc252_e,11
+abc252_h,1
+abc253_e,4
+abc253_e,9
+abc253_f,1
+abc254_e,2
+abc254_e,3
+abc254_f,1
+abc255_c,1
+abc255_d,9
+abc255_d,1
+abc256_d,9
+abc256_b,9
+abc256_c,3
+abc256_f,9
+abc257_d,1
+abc257_d,2
+abc257_d,12
+abc257_f,2
+abc257_g,1
+abc258_d,9
+abc258_h,4
+abc258_h,9
+abc259_d,2
+abc259_d,3
+abc259_f,4
+abc259_h,4
+abc260_c,4
+abc260_d,1
+abc260_e,7
+abc260_e,9
+abc260_g,9
+abc261_g,4
+abc261_g,11
+abc261_h,11
+abc262_d,4
+abc262_h,4
+abc262_h,7
+abc262_h,9
+abc263_b,4
+abc263_c,3
+abc263_d,9
+abc263_e,4
+abc263_e,9
+abc263_g,8
+abc263_h,1
+abc264_d,2
+abc264_f,4
+abc264_g,12
+abc265_d,1
+abc265_d,9
+abc265_f,9
+abc267_c,9
+abc267_d,4
+abc267_e,1
+abc267_e,6
+abc267_e,11
+abc267_g,4
+abc267_h,4
+abc268_d,1
+abc268_g,3
+abc269_e,1
+abc270_c,3
+abc270_d,6
+abc270_e,1
+abc270_f,10
+abc270_h,9
+abc271_c,1
+abc271_d,4
+abc271_e,4
+abc271_f,1
+abc271_f,3
+abc272_f,1
+abc272_h,4
+abc273_d,1
+abc273_e,9
+abc273_g,4
+abc273_h,1
+abc274_h,1
+abc275_e,4
+abc275_f,4
+abc275_f,9
+abc275_g,1
+abc275_g,8
+abc276_e,2
+abc276_e,3
+abc276_g,9
+abc276_h,9
+abc277_e,11
+abc277_g,4
+abc278_c,1
+abc278_e,9
+abc278_g,1
+abc279_d,8
+abc279_d,1
+abc279_e,1
+abc279_e,9
+abc279_g,9
+abc280_d,1
+abc280_e,9
+abc280_e,4
+abc280_h,1
+abc281_d,4
+abc281_e,9
+abc281_g,4
+abc282_d,3
+abc282_g,4
+abc282_g,9
+abc282_h,1
+abc282_h,9
+abc283_e,4
+abc283_f,1
+abc284_c,2
+abc284_c,3
+abc284_e,3
+abc285_e,4
+abc285_h,9
+abc286_d,4
+abc286_e,11
+abc286_e,12
+abc286_h,11
+abc287_f,4
+abc287_g,1
+abc287_h,12
+abc288_d,9
+abc288_e,4
+abc288_f,9
+abc288_g,9
+abc288_h,4
+abc290_g,6
+abc290_g,1
+abc290_h,4
+abc291_e,5
+abc291_f,4
+abc292_f,1
+abc292_h,1
+abc293_f,1
+abc293_h,1
+abc294_c,1
+abc294_f,1
+abc294_g,3
+abc295_d,9
+abc295_f,1
+abc296_g,1
+abc297_c,6
+abc297_e,11
+abc297_e,1
+abc298_e,9
+abc299_e,2
+abc299_f,4
+abc299_f,9
+abc299_g,7
+abc300_c,3
+abc300_d,1
+abc300_d,9
+abc300_f,1
+abc300_f,9
+abc300_h,9
