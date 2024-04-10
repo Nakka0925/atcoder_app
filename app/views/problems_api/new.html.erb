@@ -3,20 +3,20 @@
 <div class="content-template">
     <h2>Problems(ABC)</h2>
     <table class="table table-template">
-            <% @contestId.to_a.reverse.each do |arry| %>
-                <% contestName = [@contestUrl, arry[0]].join('/') %>
-                <% contestTask = [contestName, 'tasks', arry[0]].join('/') %>
+            <% @contest_id.to_a.reverse.each do |arry| %>
+                <% contest_name = [@contest_url, arry[0]].join('/') %>
+                <% contest_task = [contest_name, 'tasks', arry[0]].join('/') %>
                 <tr>
                     <% if arry[0].include?("abc") %>
-                        <td><%= link_to arry[0], contestName, target: "_blank"%></td>
+                        <td><%= link_to arry[0], contest_name, target: "_blank"%></td>
                         <% arry[1].each do |v| %>
-                            <% contestTaskUrl = [contestTask, v.downcase].join('_') %>
-                            <% algoId = @contestIdToAlgo[[arry[0], v.downcase].join('_')] %>
+                            <% contest_task_url = [contest_task, v.downcase].join('_') %>
+                            <% algo_id = @contest_id_to_algo[[arry[0], v.downcase].join('_')] %>
                             <td>
-                                <%= link_to @contestIdTitle[arry[0]][v], contestTaskUrl, target: "_blank" %><br>
-                                <% if algoId.present? %>
-                                    <% algoId.each do |id| %>
-                                        <%= @idToAlgoname[id] %>
+                                <%= link_to @contest_id_title[arry[0]][v], contest_task_url, target: "_blank" %><br>
+                                <% if algo_id.present? %>
+                                    <% algo_id.each do |id| %>
+                                        <%= @id_to_algoname[id] %>
                                     <% end %>
                                 <% end %>
                             </td>

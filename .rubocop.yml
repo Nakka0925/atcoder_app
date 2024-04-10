@@ -1,0 +1,25 @@
+AllCops:
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'db/schema.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/models/get_problem.rb'
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'app/models/get_problem.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'app/models/get_problem.rb'
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'app/models/get_problem.rb'
