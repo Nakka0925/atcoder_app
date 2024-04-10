@@ -32,8 +32,16 @@ document.addEventListener('turbo:load', (event) => {
       difficultyElement.style.color = theme.difficultyBrownColor;
     } else if (algoDifficulty == 2) {
       difficultyElement.style.color = theme.difficultyGreenColor;
+    } else if (algoDifficulty == 3) {
+        difficultyElement.style.color = theme.difficultyCyanColor;
+    } else if (algoDifficulty == 4) {
+      difficultyElement.style.color = theme.difficultyBlueColor;
+    } else if (algoDifficulty == 5) {
+      difficultyElement.style.color = theme.difficultyYellowColor;
+    } else if (algoDifficulty == 6) {
+      difficultyElement.style.color = theme.difficultyOrangeColor;
     } else {
-      difficultyElement.style.color = theme.difficultyCyanColor;
+      difficultyElement.style.color = theme.difficultyRedColor;
     }
   });
 });
