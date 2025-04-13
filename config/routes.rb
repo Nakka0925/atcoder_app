@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   # 基本機能
   get '/help', to: 'getproblems#help'
-  post '/problem_create', to: 'getproblems#random_problem'
   post '/algo_create', to: 'getproblems#algo_problem'
 
   # API
