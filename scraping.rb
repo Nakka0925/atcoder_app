@@ -14,7 +14,7 @@ end
 
 # Todo データを逐次的に保存するようにする
 (200..300).each do |i| # Note 例:ABC200-300 (200..300) ※あまり範囲を大きくすると通信エラーが出る場合がある
-  url = "https://atcoder.jp/contests/abc#{i}/editorial?lang=ja" 
+  url = "https://atcoder.jp/contests/abc#{i}/editorial?lang=ja"
 
   html = URI.open(url)
   doc = Nokogiri::HTML(html)

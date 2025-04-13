@@ -12,16 +12,6 @@ class GetproblemsController < ApplicationController
     @problems = Problem.where(algo_id: name_to_id) if name_to_id.present?
   end
 
-  def random_problem
-    # インスタンスを生成して問題を取得
-    entry = GetProblem.new
-    session[:res_data] = entry.response_problem(params)
-
-    store_problem_info_in_session(session[:res_data])
-
-    redirect_to root_path
-  end
-
   def algo_problem
     # 選択されたアルゴリズムをセッションに保存
     session[:selected_algo] = params[:selecte_algo]
