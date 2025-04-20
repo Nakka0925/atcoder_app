@@ -1,6 +1,6 @@
 version: '3'
 services:
-  web:
+  backend:
     # build: .でdocker-compose.ymlと同じフォルダにDockerfileがあることを示す
     build: 
       context: ./backend
@@ -8,7 +8,7 @@ services:
     # 毎回 rm tmp/pids/server.pid するのも手間であるため、・事前に手元で/tmp/pids/server.pidを削除する
     command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - ./backend:/backend
+      - ./backend/rails_project:/backend
     ports:
       - 3000:3000
     depends_on:

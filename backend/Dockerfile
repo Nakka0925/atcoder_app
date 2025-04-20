@@ -11,16 +11,16 @@ RUN apt-get update && \
 ARG RUBYGEMS_VERSION=3.3.20
 
 # RUN：任意のコマンド実行
-RUN mkdir /atcoder_app
+RUN mkdir /backend
 
 # WORKDIR：作業ディレクトリを指定
-WORKDIR /atcoder_app
+WORKDIR /backend
 
 # COPY：コピー元とコピー先を指定
 # ローカルのGemfileをコンテナ内の/app/Gemfileに
-COPY Gemfile /atcoder_app/Gemfile
+COPY rails_project/Gemfile /backend/Gemfile
 
-COPY Gemfile.lock /atcoder_app/Gemfile.lock
+COPY rails_project/Gemfile.lock /backend/Gemfile.lock
 
 # RubyGemsをアップデート
 RUN gem update --system ${RUBYGEMS_VERSION} && \
